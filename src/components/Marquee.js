@@ -14,10 +14,13 @@ const Marquee = (props) => {
     for (let content of props.content) {
       if (content.slug == slug) {
         setCurrentContent(content.blocks);
-        document.body.style.backgroundImage = content.blocks.backgroundImage
+        console.log(content.blocks[0].background)
+        props.changeBackground(content.blocks[0].background)
         break;
       }
     }
+
+    
   }, [location]);
 
   return (

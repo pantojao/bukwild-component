@@ -7,24 +7,30 @@ const content = require("./content.json");
 
 function App() {
   const [currentContent, setCurrentContent] = useState(false);
-  const [currentBackground, setCurrentBackground] = useState(false)
+  const [currentBackground, setCurrentBackground] = useState('url("./assets/backgrounds/slide_one.jpg")')
 
   useEffect(() => {
     let allContent = content['pages']
     setCurrentContent(allContent)
-    // const path = location.pathname.split("/");
-    // const slug = path[path.length - 1];
-    // for ()
   }, []);
 
+ function onChangeBackground(backgroundImage){
+    const background = require(`./assets/backgrounds/${backgroundImage}`).default
+    console.log(background, "hey")
+    setCurrentBackground(`url("${background}")`)
+  }
+
+  console.log(currentBackground)
 
   return (
-    <div className="app">
+    
+    <div className="app" style={{backgroundImage: currentBackground}}  >
+      
       <Router>
         <Navbar />
         <Switch>
           <Route path="/">
-            {currentContent ? <Marquee content={currentContent} /> : null}
+            {currentContent ? <Marquee content={currentContent} changeBackground={(color) => onChangeBackground(color)}/> : null}
           </Route>
         </Switch>
       </Router>
