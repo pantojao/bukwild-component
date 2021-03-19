@@ -3,7 +3,6 @@ import Content from "./content";
 import CTA from "./CTA";
 import { useLocation } from "react-router-dom";
 
-
 const Marquee = (props) => {
   const [currentContent, setCurrentContent] = useState(false);
   const location = useLocation();
@@ -19,8 +18,6 @@ const Marquee = (props) => {
         break;
       }
     }
-
-    
   }, [location]);
 
   return (

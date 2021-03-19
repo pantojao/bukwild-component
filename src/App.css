@@ -1,34 +1,40 @@
+html,
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
 
- body {
+body {
   background-color: #282c34;
-  margin: 0; 
+  margin: 0;
   color: white;
-  overflow-x:hidden;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .app {
-  box-sizing: border-box;
   font-family: Helvetica, sans-serif;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   min-width: 100vw;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 /* NavBar */
 nav {
   display: flex;
   justify-content: space-between;
-  width: 85vw;
+  width: 90vw;
   max-width: 1440px;
   margin: 0 auto;
-  padding-top: 1.5em;
+  padding-top: 1.6rem;
 }
 
 .contact-btn {
-  width: 139px;
-  height: 42px;
+  width: 8.7rem;
+  height: 2.625;
   padding: 12px 1px 12px 0;
   border: solid 1px white;
   background-color: transparent;
@@ -39,16 +45,15 @@ nav {
   display: flex;
   flex-flow: column wrap;
   position: absolute;
-  top: 2.2em;
+  top: 3rem;
 }
 
 .page-redirect {
   color: white;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
-  margin-top: 1em;
+  line-height: 1.86;
   font-weight: bold;
-  text-align: left;
 }
 
 .page-redirect:hover {
@@ -58,41 +63,35 @@ nav {
 /* Main Content (headers) */
 
 .content {
-  width: 85vw;
+  width: 90vw;
   max-width: 1440px;
-  margin: 10% auto;
+  min-height: 17rem;
+  height: auto;
+  margin: 16rem auto 3rem auto;
   display: flex;
   flex-flow: wrap row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding-right: 4.5rem;
 }
 
 .headline {
-  max-width: 50%;
-  height: 250px;
-  line-height: 4rem;
-  font-size: 3.25rem;
-  text-align: left;
+  max-width: 38.25rem;
+  font-size: 5.25rem;
+  line-height: 1;
+  letter-spacing: -2.2px;
+  margin: 0;
   word-wrap: break-word;
-  /* outline: 2px red solid; */
   font-family: Helvetica, sans-serif;
 }
 
 .main-text {
-  box-sizing: border-box;
-  word-wrap: break-word;
-  width: 40%;
-  height: 250px;
-  padding: 0 1.5em;
-  margin: auto 0;
-  /* outline: 2px blue solid; */
+  max-width: 22.5rem;
 }
 
 .subheader {
-  font-size: .9rem;
-  text-align: left;
-  line-height: 1.625rem;
-  letter-spacing: 0;
+  font-size: 1rem;
+  line-height: 1.86;
   color: rgba(255, 255, 255, 0.815);
 }
 
@@ -103,9 +102,9 @@ nav {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  width: 85vw;
-  height: 180px;
-  margin: 0em auto;
+  width: 90vw;
+  height: 11.2rem;
+  margin: 0 auto;
   max-width: 1440px;
   padding: 0em 1em;
 }
@@ -113,8 +112,9 @@ nav {
 .cta-text {
   color: black;
   font-weight: bolder;
-  font-size: 1.1rem;
-  word-wrap: normal;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  letter-spacing: -0.65px;
 }
 
 .cta-redirect {
@@ -128,7 +128,6 @@ nav {
   color: black;
   font-size: 0.8rem;
   font-weight: bold;
-  
 }
 
 .arrow {
@@ -136,24 +135,36 @@ nav {
   padding: 6px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
   .content {
-    width: 98vw;
-    display: flex;
     flex-direction: column;
-  }
-  .main-text {
-    width: 100%;
-    /* outline: orange 7px solid; */
+    justify-content: center;
+    text-align: center;
+    margin-top: 7rem;
+    padding: 0;
   }
 
   .headline {
-    font-size: 1.5rem;
-    max-width: 90%;
-    text-align: center;
+    font-size: 4.5rem;
+    margin: 0 auto 1.5rem auto;
   }
 
-  .subheader {
-    font-size: 1rem;
+  .main-text {
+    margin: 0 auto;
+  }
+  .cta-text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .headline {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .headline {
+    font-size: 3rem;
   }
 }
