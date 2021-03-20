@@ -1,12 +1,13 @@
 import "./App.css";
 import Navbar from "./components/navbar";
-import Marquee from "./components/Marquee";
+import MarqueeComponent from "./components/Marquee";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const content = require("./content.json");
 
 function App() {
   const [currentContent, setCurrentContent] = useState(false);
+  const [currentMarquee, setCurrentMarque] = useState('industries')
   const [currentBackground, setCurrentBackground] = useState(
     'url("./assets/backgrounds/slide_one.jpg")'
   );
@@ -22,16 +23,19 @@ function App() {
     setCurrentBackground(`url("${background}")`);
   }
 
+
     return (
     <div className="app" style={{ backgroundImage: currentBackground }}>
+
       <Router>
-        <Navbar />
+        <Navbar changeMarquee={(current) => {setCurrentMarque(current); console.log("navClikd")}}/>
         <Switch>
           <Route path="/">
             {currentContent ? (
-              <Marquee
+              <MarqueeComponent
                 content={currentContent}
                 changeBackground={(color) => onChangeBackground(color)}
+                currentMarquee = {currentMarquee}
               />
             ) : null}
           </Route>

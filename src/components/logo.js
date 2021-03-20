@@ -1,24 +1,35 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import LogoIcon from './logoIcon'
-const Logo = () => {
+import LogoIcon from "./logoIcon";
+
+const Logo = (props) => {
   const [linkDisplay, setLinkDisplay] = useState(false);
+  const [currentPage, setCurrentPage] = useState(false)
+
+  const changePage = (page) => { 
+    props.changeMarquee(page)
+    console.log(page)
+  }
 
   return (
-    <div onMouseEnter={() => setLinkDisplay(true)} onMouseLeave={() => setLinkDisplay(false)}  style={{position: "relative"}} >
-      <LogoIcon /> 
-      
+    <div
+      onMouseEnter={() => setLinkDisplay(true)}
+      onMouseLeave={() => setLinkDisplay(false)}
+      style={{ position: "relative" }}
+    >
+      <LogoIcon />
+
       {linkDisplay ? (
         <div className="navigation-links">
-          <Link className="page-redirect" to="/industries">
+          <span className="page-redirect" onClick={() => changePage("industries")}>
             Industries
-          </Link>
-          <Link className="page-redirect" to="/services">
+          </span>
+
+          <span className="page-redirect" onClick ={() => changePage("services")}>
             Services
-          </Link>
-          <Link className="page-redirect" to="/about-us">
+          </span>
+          <span className="page-redirect" onClick = {() => changePage("about-us")}>
             About Us
-          </Link>
+          </span>
         </div>
       ) : null}
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CTA = (props) => { 
-    const content = props.content[0]
+    const content = props.content["blocks"][0]
     const arrow = require('./arrow.JPG').default
 
     return (

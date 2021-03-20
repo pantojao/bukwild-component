@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from "react";
-import Content from "./content";
-import CTA from "./CTA";
-import { useLocation } from "react-router-dom";
+import AllContent from "./AllContent.js";
 
-const Marquee = (props) => {
+const MarqueeComponent = (props) => {
+  const [contents, setContents] = useState(false);
   const [currentContent, setCurrentContent] = useState(false);
-  const location = useLocation();
+  
+  useEffect(() => {
+    setContents(props.content);
+  }, []);
 
   useEffect(() => {
-    const path = location.pathname.split("/");
-    const slug = path[path.length - 1];
-    for (let content of props.content) {
-      if (content.slug == slug) {
-        setCurrentContent(content.blocks);
-        console.log(content.blocks[0].background)
-        props.changeBackground(content.blocks[0].background)
-        break;
+    if (contents){
+      for (let content of contents) {
+        if (content.slug == props.currentMarquee) {
+          setCurrentContent(content);
+          props.changeBackground(content.blocks[0].background);
+          break;
+        }
       }
     }
-  }, [location]);
+    if (!currentContent) {
+      setCurrentContent(props.content[0]);
+      props.changeBackground(props.content[0].blocks[0].background);
+    }
+  }, [props.currentMarquee]);
 
-  return (
-    <>
-      {currentContent ? (
-        <div>
-          <Content content={currentContent} />
-          <CTA content={currentContent} />
-        </div>
-      ) : null}
-    </>
-  );
+  return <>{currentContent ? <AllContent content={currentContent} /> : null}</>;
 };
 
-export default Marquee;
+export default MarqueeComponent;

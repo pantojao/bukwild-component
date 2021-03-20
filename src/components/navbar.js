@@ -1,10 +1,10 @@
 import React from "react";
 import Logo from "./logo";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav>
-      <Logo />
+      <Logo changeMarquee={(current) => props.changeMarquee(current)}/>
       <button class="contact-btn">Contact Us</button>
     </nav>
   );
