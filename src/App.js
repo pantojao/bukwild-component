@@ -23,12 +23,11 @@ function App() {
     setCurrentBackground(`url("${background}")`);
   }
 
-
+  // style={{ backgroundImage: currentBackground }}
     return (
-    <div className="app" style={{ backgroundImage: currentBackground }}>
-
+    <div className="app" > 
       <Router>
-        <Navbar changeMarquee={(current) => {setCurrentMarque(current); console.log("navClikd")}}/>
+        <Navbar changeMarquee={(current) => setCurrentMarque(current)}/>
         <Switch>
           <Route path="/">
             {currentContent ? (

@@ -23,62 +23,33 @@ body {
   box-sizing: border-box;
 }
 
+.slide-appear {
+  transform: translateX(80vw);
+}
+.slide-appear-active {
+  transform: translateX(0vw);
+  transition:  transform 1000ms ease-in;
+} 
+
 .slide-enter {
   transform: translateX(80vw);
 }
 
-.slide-enter.slide-enter-active {
+.slide-enter-active {
     transform: translateX(0vw);
-    transition:  transform 1000ms ease-in ;
-}
-.slide-enter-done {
-  transform: translateX(0vw);
+    transition:  transform 1000ms linear ;
 }
 
 .slide-exit {
-    /* transform: translateX(0vw); */
+    transform: translateX(0vw);
+    position: absolute;
+    top: 20rem;
 }
 
-.slide-exit.slide-exit-active {
+.slide-exit-active {
     transform: translateX(-100vw);
-    transition: transform 1000ms linear;
+    transition: transform 1000ms ease-out;
 }
-
-.slide-exit-done {
-  transform: translateX(-100vw);
-}
-/* 
-.fade-appear {
-  opacity: 0;
-  z-index: 1;
-}
-.fade-appear.fade-appear-active {
-opacity: 1;
-transition: opacity 2000ms linear;
-}
-
-/* enter */
-/* .fade-enter {
-opacity: 0;
-z-index: 1;
-}
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 2500ms linear 2500ms;
-}
-
-/* exit */
-/* .fade-exit {
-  opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-  opacity: 0;
-  transition: opacity 2500ms linear;
-}
-.fade-exit-done {
-opacity: 0;
-}   */
 
 /* NavBar */
 nav {
@@ -104,7 +75,8 @@ nav {
   flex-flow: column wrap;
   position: absolute;
   top: 3rem;
-  top:2rem
+  top:2.5rem;
+  cursor: pointer;
 }
 
 .page-redirect {
@@ -112,6 +84,7 @@ nav {
   font-size: 0.875rem;
   text-decoration: none;
   line-height: 1.86;
+  cursor: pointer;
   font-weight: bold;
 }
 
@@ -120,6 +93,21 @@ nav {
 }
 
 /* Main Content (headers) */
+
+.all-content { 
+  outline: 6px red solid; 
+  height: 100vh;
+  width: 100vw !important;
+  position: absolute;
+  top:0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  z-index: -200
+}
 
 .content {
   width: 90vw;
@@ -132,6 +120,7 @@ nav {
   justify-content: space-between;
   align-items: flex-start;
   padding-right: 4.5rem;
+ 
 }
 
 .headline {
@@ -202,6 +191,11 @@ nav {
     margin-top: 7rem;
     padding: 0;
   }
+
+  .slide-exit {
+    top: 11rem;
+}
+
 
   .headline {
     font-size: 4.5rem;
