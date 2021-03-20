@@ -6,7 +6,7 @@ html,
 }
 
 body {
-  background-color: #282c34;
+  background-color: #090a0c;
   margin: 0;
   color: white;
   overflow-x: hidden;
@@ -23,32 +23,23 @@ body {
   box-sizing: border-box;
 }
 
-.slide-appear {
-  transform: translateX(80vw);
-}
-.slide-appear-active {
-  transform: translateX(0vw);
-  transition:  transform 1000ms ease-in;
-} 
-
 .slide-enter {
   transform: translateX(80vw);
 }
 
 .slide-enter-active {
-    transform: translateX(0vw);
-    transition:  transform 1000ms linear ;
+  transform: translateX(0vw);
+  transition: transform 1000ms ease-out;
 }
 
 .slide-exit {
-    transform: translateX(0vw);
-    position: absolute;
-    top: 20rem;
+  transform: translateX(0vw);
+  position: absolute;
 }
 
 .slide-exit-active {
-    transform: translateX(-100vw);
-    transition: transform 1000ms ease-out;
+  transform: translateX(-100vw);
+  transition: transform 900ms ease-out;
 }
 
 /* NavBar */
@@ -75,7 +66,6 @@ nav {
   flex-flow: column wrap;
   position: absolute;
   top: 3rem;
-  top:2.5rem;
   cursor: pointer;
 }
 
@@ -94,19 +84,18 @@ nav {
 
 /* Main Content (headers) */
 
-.all-content { 
-  outline: 6px red solid; 
+.all-content {
   height: 100vh;
   width: 100vw !important;
   position: absolute;
-  top:0;
+  top: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   min-width: 100vw;
   min-height: 100vh;
   box-sizing: border-box;
-  z-index: -200
+  z-index: -200;
 }
 
 .content {
@@ -120,7 +109,6 @@ nav {
   justify-content: space-between;
   align-items: flex-start;
   padding-right: 4.5rem;
- 
 }
 
 .headline {
@@ -188,14 +176,9 @@ nav {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin-top: 7rem;
+    margin-top: 12rem;
     padding: 0;
   }
-
-  .slide-exit {
-    top: 11rem;
-}
-
 
   .headline {
     font-size: 4.5rem;

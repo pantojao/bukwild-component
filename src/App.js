@@ -7,34 +7,23 @@ const content = require("./content.json");
 
 function App() {
   const [currentContent, setCurrentContent] = useState(false);
-  const [currentMarquee, setCurrentMarque] = useState('industries')
-  const [currentBackground, setCurrentBackground] = useState(
-    'url("./assets/backgrounds/slide_one.jpg")'
-  );
+  const [currentMarquee, setCurrentMarque] = useState("industries");
 
   useEffect(() => {
     let allContent = content["pages"];
     setCurrentContent(allContent);
   }, []);
 
-  function onChangeBackground(backgroundImage) {
-    const background = require(`./assets/backgrounds/${backgroundImage}`)
-      .default;
-    setCurrentBackground(`url("${background}")`);
-  }
-
-  // style={{ backgroundImage: currentBackground }}
-    return (
-    <div className="app" > 
+  return (
+    <div className="app">
       <Router>
-        <Navbar changeMarquee={(current) => setCurrentMarque(current)}/>
+        <Navbar changeMarquee={(current) => setCurrentMarque(current)} />
         <Switch>
           <Route path="/">
             {currentContent ? (
               <MarqueeComponent
                 content={currentContent}
-                changeBackground={(color) => onChangeBackground(color)}
-                currentMarquee = {currentMarquee}
+                currentMarquee={currentMarquee}
               />
             ) : null}
           </Route>

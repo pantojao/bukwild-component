@@ -14,8 +14,7 @@ const Logo = (props) => {
     <div
       onMouseEnter={() => setLinkDisplay(true)}
       onMouseLeave={() => setLinkDisplay(false)}
-      style={{ position: "relative" }}
-    >
+      style={{ position: "relative", border: "5px transparent solid" }}>
       <LogoIcon />
 
       {linkDisplay ? (

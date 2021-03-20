@@ -5,8 +5,6 @@ const Content = (props) => {
   
   useEffect(() => { 
     setContent(props.content["blocks"][0])
-    console.log("changae", props)
-
   }, [props])
 
   return (
