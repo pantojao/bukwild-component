@@ -2,9 +2,11 @@ import React from "react";
 import Logo from "./logo";
 
 const Navbar = (props) => {
+  // 1) ChangeMarquee is a function that returns the current page to the parent component
+
   return (
     <nav>
-      <Logo changeMarquee={(current) => props.changeMarquee(current)}/>
+      <Logo changeMarquee={(current) => props.changeMarquee(current)} />{" "}
       <button class="contact-btn">Contact Us</button>
     </nav>
   );

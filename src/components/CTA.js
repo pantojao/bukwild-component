@@ -1,19 +1,19 @@
-import React from 'react'
+import React from "react";
 
-const CTA = (props) => { 
-    const content = props.content["blocks"][0]
-    const arrow = require('./arrow.JPG').default
+//Renders call to action banner
+const CTA = (props) => {
+  const content = props.content["blocks"][0];
+  const arrow = require("../assets/arrow.JPG").default;
 
-    return (
-        <div className="cta-banner">
-            <p className="cta-text">{content.cta}</p>
-            <div className="cta-redirect">
-              <span>LET'S TALK.</span>
-              <img src={arrow} alt="ty"/>
-            </div>
-        </div>
-      
-    )
-}
+  return (
+    <div className="cta-banner">
+      <p className="cta-text">{content.cta}</p>
+      <div className="cta-redirect">
+        <span>LET'S TALK.</span>
+        <img src={arrow} alt="ty" />
+      </div>
+    </div>
+  );
+};
 
-export default CTA
+export default CTA;

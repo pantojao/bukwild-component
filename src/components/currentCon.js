@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import AllContent from "./AllContent.js";
 
-const MarqueeComponent = (props) => {
+// 1) This component controls the logic that will determine the
+// the current page
+// 2) Content data is then passed to the children that render
+
+const CurrentContent = (props) => {
   const [contents, setContents] = useState(false);
   const [currentContent, setCurrentContent] = useState(false);
   const [currentBackground, setCurrentBackground] = useState(false);
-  
+
   useEffect(() => {
     setContents(props.content);
   }, []);
@@ -35,4 +39,4 @@ const MarqueeComponent = (props) => {
   );
 };
 
-export default MarqueeComponent;
+export default CurrentContent;
