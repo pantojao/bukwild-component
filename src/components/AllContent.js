@@ -1,6 +1,7 @@
 import React from "react";
 import TextContent from "./textContent";
 import CTA from "./CTA";
+
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // 1) This component handles the logic for all the dynamic rendering
